@@ -9,34 +9,61 @@ int main()
         int n,k,a,i=0,j=0,sum=0;
         cin>>n>>k;
         int len[n];
-        vector< vector<int> > v;
+        int arr[n][k];
         for(i=0;i<n;i++)
         {
             cin>>len[i];
-
-            vector<int> v1;
             for(j=0;j<len[i];j++)
             {
                 cin>>a;
-                v1.push_back(a);
+                arr[i][j]=a;
             }
-            v.push_back(v1);
+
         }
         for(i=0;i<n-1;i++)
         {
+             bool arr1[k+1]={0};
+             int x=0;
+             int sum1=0;
+             int s=0;
+             while(x<len[i])
+             {
+                arr1[arr[i][x]]=true;
+                sum1++;
+                x++;
+             }
+             s=sum1;
+
             for(j=i+1;j<n;j++)
             {
-                vector<int> s;
+                sum1=s;
 
-                s=v[i];
-                s.insert(s.end(),v[j].begin(),v[j].end());
 
-                if(s.size()==k)
+                if(len[j]>=k-len[i])
                 {
-                    sum++;
+                   x=0;
+                    while(x<len[j])
+                    {
+                     if(arr1[arr[j][x]]==false)
+                     {
+
+                         sum1++;
+
+                     }
+
+                     x++;
+                    }
+                   if(sum1==k)
+                   {
+                       sum++;
+
+                   }
+
                 }
             }
-        }
+
+          }
+
         cout<<sum<<endl;
     }
 }
