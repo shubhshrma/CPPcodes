@@ -1,2 +1,2 @@
 # CPPcodes
-A collection of all my c++ codes submitted to various competitive programming websites like codechef,hackerrank,hackerearth etc.
+A collection of some my C++ codes submitted to various competitive programming websites like codechef,hackerrank,hackerearth etc.
